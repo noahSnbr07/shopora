@@ -39,8 +39,8 @@ export default async function layout({ children }: _props) {
                         alt="My Profile" />
                 </Link>
             </header>
-            <main>
-
+            <main className="flex-1 overflow-y-scroll">
+                {children}
             </main>
         </div>
     );

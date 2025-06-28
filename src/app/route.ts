@@ -1,8 +1,8 @@
 import getAuth from '@/functions/get-auth';
 import { redirect } from 'next/navigation';
-import { NextResponse, NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 
-export async function GET(_request: NextRequest): Promise<NextResponse> {
+export async function GET(): Promise<NextResponse> {
 
     const auth = await getAuth();
     if (!auth) redirect("/authentication");
