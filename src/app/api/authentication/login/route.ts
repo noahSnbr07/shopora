@@ -40,7 +40,7 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
         if (!match) return NextResponse.json(APIResponseTemplate.unauthorized("Password incorrect"));
 
         //extract safe-to-store data
-        const { hash, ...safeUser } = targetUser;
+        const { hash, ...safeUser } = targetUser;  // eslint-disable-line
 
         //create jwt
         const token: string = sign(safeUser, JWT_SECRET, options);

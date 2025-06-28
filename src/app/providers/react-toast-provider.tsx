@@ -2,7 +2,6 @@
 
 import React from "react";
 import { ToastContainer } from "react-toastify";
-import { Info } from "lucide-react";
 
 interface _props {
     children: React.ReactNode;
