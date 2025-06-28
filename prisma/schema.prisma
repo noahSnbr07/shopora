@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("PRISMA_DATABASE_URL")
 }
 
 model User {
@@ -21,7 +21,7 @@ model User {
   identifier String   @default("New User")
 
   //props
-  name       String
+  name       String   @unique
   hash       String
   source     String // avatar picture source
   lastSignIn DateTime @updatedAt // show stat `last-sign-in` on frontend
