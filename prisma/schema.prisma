@@ -12,3 +12,52 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  //base
+  id         String   @id @default(uuid())
+  created    DateTime @default(now())
+  updated    DateTime @updatedAt
+  identifier String   @default("New User")
+
+  //props
+  name       String
+  hash       String
+  lastSignIn DateTime // show stat `last-sign-in` on frontend
+  profile    Profile?
+
+  //relations
+}
+
+model Profile {
+  //base
+  id         String   @id @default(uuid())
+  created    DateTime @default(now())
+  updated    DateTime @updatedAt
+  identifier String   @default("New Profile")
+
+  //props
+  user   User      @relation(fields: [userId], references: [id])
+  listed Product[] @relation("ProfileListedProducts")
+  saved  Product[] @relation("ProfileSavedProducts")
+
+  //relations
+  userId String @unique
+}
+
+model Product {
+  //base
+  id         String   @id @default(uuid())
+  created    DateTime @default(now())
+  updated    DateTime @updatedAt
+  identifier String   @default("New Product")
+
+  //props
+  name        String
+  description String
+  price       Float
+  count       Int       @default(1) // multiple items?
+  unavailable Boolean   @default(false) // temporal unavailability possible
+  listedBy    Profile[] @relation("ProfileListedProducts")
+  savedBy     Profile[] @relation("ProfileSavedProducts")
+}
