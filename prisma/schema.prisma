@@ -23,7 +23,8 @@ model User {
   //props
   name       String
   hash       String
-  lastSignIn DateTime // show stat `last-sign-in` on frontend
+  source     String // avatar picture source
+  lastSignIn DateTime @updatedAt // show stat `last-sign-in` on frontend
   profile    Profile?
 
   //relations
@@ -54,6 +55,7 @@ model Product {
 
   //props
   name        String
+  source      String // image source
   description String
   price       Float
   count       Int       @default(1) // multiple items?
