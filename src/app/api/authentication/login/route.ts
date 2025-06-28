@@ -56,7 +56,7 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
             sameSite: "lax",
         });
 
-        return NextResponse.json(APIResponseTemplate.ok(token));
+        return NextResponse.json(APIResponseTemplate.ok());
 
     } catch (error) {
         return NextResponse.json(APIResponseTemplate.internalServerError(error instanceof Error ? error : "Uncaught Error"))
