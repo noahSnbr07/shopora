@@ -16,7 +16,7 @@ export default async function layout({ children }: _props) {
     const user = await database.user.findUnique({ where: { id: auth!.id } });
 
     return (
-        <div className="size-full flex flex-col">
+        <div className="flex flex-col w-dvw h-dvh overflow-hidden">
             <header className="flex border-b-2 justify-between border-stack p-4">
                 <Link
                     className="opacity-50 hover:opacity-100"
@@ -39,7 +39,7 @@ export default async function layout({ children }: _props) {
                         alt="My Profile" />
                 </Link>
             </header>
-            <main className="flex-1 p-4">
+            <main className="flex-1 flex p-4 overflow-y-auto">
                 {children}
             </main>
         </div>

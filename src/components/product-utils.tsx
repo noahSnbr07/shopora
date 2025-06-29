@@ -32,7 +32,7 @@ function Product({ product }: _product_props) {
 function ProductList({ products }: _product_list_props) {
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid flex-1 overflow-y-scroll grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
             {products.map((product, _index: number) => <Product key={_index} product={product} />)}
         </div>
     );
