@@ -30,7 +30,7 @@ export default async function layout({ children }: _props) {
                 </Link>
                 <Link
                     className="size-8"
-                    href={`/user/me`}>
+                    href={`/user/${user!.name}`}>
                     <Image
                         className="aspect-square object-fill rounded-full"
                         src={user!.source || ""}
@@ -39,7 +39,7 @@ export default async function layout({ children }: _props) {
                         alt="My Profile" />
                 </Link>
             </header>
-            <main className="flex-1 overflow-y-scroll">
+            <main className="flex-1 p-4">
                 {children}
             </main>
         </div>
