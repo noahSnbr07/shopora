@@ -1,3 +1,6 @@
+/**
+ * a template of common api responses
+ */
 const APIResponseTemplate = {
     ok: (message: string = "Success") => ({
         success: true,
@@ -50,7 +53,7 @@ const APIResponseTemplate = {
         data: null,
         message: "Internal server error",
         error: error,
-        status: 404,
+        status: 500,
     }),
 }
 

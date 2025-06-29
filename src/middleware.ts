@@ -17,6 +17,7 @@ export async function middleware(request: NextRequest) {
     else return NextResponse.redirect(new URL("/", request.url));
 }
 
+//routes to protect
 export const config = {
     matcher: ["/home"],
 }
