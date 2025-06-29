@@ -14,7 +14,7 @@ interface _product_list_props {
 function Product({ product }: _product_props) {
 
     return (
-        <div className="flex flex-col gap-4 p-4 border-stack border rounded-xl">
+        <div className="flex flex-col gap-4 p-4 border-stack border rounded-xl self-start">
             <Image
                 src={product.source}
                 alt={product.name}
@@ -32,7 +32,7 @@ function Product({ product }: _product_props) {
 function ProductList({ products }: _product_list_props) {
 
     return (
-        <div className="grid flex-1 overflow-y-scroll grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid flex-1 overflow-y-scroll grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
             {products.map((product, _index: number) => <Product key={_index} product={product} />)}
         </div>
     );
