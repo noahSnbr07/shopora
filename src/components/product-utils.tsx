@@ -11,6 +11,7 @@ interface _product_list_props {
     products: Product[];
 }
 
+//single product
 function Product({ product }: _product_props) {
 
     return (
@@ -29,6 +30,7 @@ function Product({ product }: _product_props) {
     );
 }
 
+//list of products: flex-grows, scrollable
 function ProductList({ products }: _product_list_props) {
 
     return (
