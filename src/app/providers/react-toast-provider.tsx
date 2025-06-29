@@ -6,7 +6,11 @@ import { ToastContainer } from "react-toastify";
 interface _props {
     children: React.ReactNode;
 }
-
+/**
+ * 
+ * @param children React.ReactNode
+ * @returns Wrapper to enable notifications
+ */
 export default function ReactToastProvider({ children }: _props) {
 
     return (

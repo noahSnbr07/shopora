@@ -10,14 +10,22 @@ import { ClipLoader } from "react-spinners";
 
 export default function Card() {
 
+    //register fields, handle submits and display schema errors
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ resolver });
+
+    //track pending state to deny spam
     const [pending, setPending] = useState<boolean>(false);
+
+    //used to redirect on success
     const router = useRouter();
 
     async function onSubmit(formData: FormData) {
+
+        //deny spam
         if (pending) return;
         setPending(true);
 
+        //create body
         const body = new FormData();
         body.append('name', formData.name);
         body.append('password', formData.password);

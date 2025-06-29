@@ -12,6 +12,7 @@ interface _props {
 
 export default async function layout({ children }: _props) {
 
+    //retrieve user by token
     const auth = await getAuth();
     const user = await database.user.findUnique({ where: { id: auth!.id } });
 
