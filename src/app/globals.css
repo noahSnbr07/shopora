@@ -37,4 +37,10 @@ body {
 
 * {
   transition: 250ms ease-out;
+  outline: none;
+}
+
+button,
+a {
+  cursor: pointer;
 }
