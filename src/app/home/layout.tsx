@@ -5,6 +5,8 @@ import getAuth from "@/functions/get-auth";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Searchbar from "./components/searchbar";
+import ProfileSection from "./components/profile-section";
 
 interface _props {
     children: React.ReactNode;
@@ -29,16 +31,12 @@ export default async function layout({ children }: _props) {
                         alt="Home Page Banner"
                         title="Home Page Banner" />
                 </Link>
-                <Link
-                    className="size-8"
-                    href={`/user/${user!.name}`}>
-                    <Image
-                        className="aspect-square object-fill rounded-full"
-                        src={user!.source || ""}
-                        height={32}
-                        width={32}
-                        alt="My Profile" />
-                </Link>
+                <Searchbar />
+                <ProfileSection
+                    loggedIn={auth !== null}
+                    picture={user!.source}
+                    name={user?.name || "not-found"}
+                />
             </header>
             <main className="flex-1 flex p-4 overflow-y-auto">
                 {children}
