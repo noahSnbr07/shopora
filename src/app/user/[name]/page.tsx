@@ -7,7 +7,10 @@ export default async function page({ params }: { params: Promise<{ name: string 
     const { name } = await params;
 
     //retrieve user except hash from name
-    const user = await database.user.findUnique({ where: { name }, include: { profile: true }, omit: { hash: true } })
+    const user = await database.user.findUnique({
+        where: { name },
+        include: { profile: true }, omit: { hash: true }
+    })
 
     return (
         <div className="p-4">
