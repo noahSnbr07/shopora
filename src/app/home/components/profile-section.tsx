@@ -27,8 +27,9 @@ export default async function ProfileSection({ picture, loggedIn = false, name }
                     alt="My Profile" />
             </Link>
             <MutationButton
+                className="bg-stack rounded-md items-center h-8 flex px-4 gap-4"
                 name={loggedIn ? "Logout" : "Login"}
-                icon={loggedIn ? <LogOut /> : <LogIn />}
+                icon={loggedIn ? <LogOut size={16} /> : <LogIn size={16} />}
                 reload
                 endpoint={`/api/authentication/${loggedIn ? "logout" : "login"}`}
             />
