@@ -1,5 +1,6 @@
 'use server';
 
+import MutationButton from "@/components/mutation-button";
 import { LogIn, LogOut } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,15 +26,12 @@ export default async function ProfileSection({ picture, loggedIn = false, name }
                     width={32}
                     alt="My Profile" />
             </Link>
-            <form
-                action={loggedIn ? "/authentication/logout" : "/authentication/login"}
-                method="post">
-                <button
-                    className="px-4 h-8 bg-stack rounded-md"
-                    type="submit">
-                    {loggedIn ? <LogOut size={16} opacity={.5} /> : <LogIn size={16} opacity={.5} />}
-                </button>
-            </form>
+            <MutationButton
+                name={loggedIn ? "Logout" : "Login"}
+                icon={loggedIn ? <LogOut /> : <LogIn />}
+                reload
+                endpoint={`/api/authentication/${loggedIn ? "logout" : "login"}`}
+            />
         </div>
     );
 }
