@@ -1,5 +1,7 @@
 'use server';
 import database from "@/config/database.config";
+import ArtworkSection from "../components/artwork-section";
+import { redirect } from "next/navigation";
 
 export default async function page({ params }: { params: Promise<{ name: string }> }) {
 
@@ -10,11 +12,15 @@ export default async function page({ params }: { params: Promise<{ name: string 
     const user = await database.user.findUnique({
         where: { name },
         include: { profile: true }, omit: { hash: true }
-    })
+    });
+
+    if (!user) redirect("/");
 
     return (
         <div className="p-4">
-            <pre> {JSON.stringify(user, null, 2)} </pre>
+            <ArtworkSection
+                {...user}
+            />
         </div>
     );
 }
