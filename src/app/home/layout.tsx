@@ -20,7 +20,7 @@ export default async function layout({ children }: _props) {
 
     return (
         <div className="flex flex-col w-dvw h-dvh overflow-hidden">
-            <header className="flex border-b-2 justify-between border-stack p-4">
+            <header className="flex gap-4 border-b-2 justify-between border-stack p-4">
                 <Link
                     className="opacity-50 hover:opacity-100"
                     href={"/"}
