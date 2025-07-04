@@ -2,6 +2,7 @@
 
 import { type Product } from "@prisma/client";
 import Image from "next/image";
+import Link from "next/link";
 
 interface _product_props {
     product: Product;
@@ -15,7 +16,9 @@ interface _product_list_props {
 function Product({ product }: _product_props) {
 
     return (
-        <div className="flex flex-col gap-4 p-4 border-stack border rounded-xl self-start">
+        <Link
+            href={`/product/${product.id}`}
+            className="flex flex-col gap-4 p-4 border-stack border rounded-xl self-start">
             <Image
                 src={product.source}
                 alt={product.name}
@@ -26,7 +29,7 @@ function Product({ product }: _product_props) {
                 style={{ objectFit: "contain" }} />
             <b className="underline"> {product.name} </b>
             <i> ${product.price} </i>
-        </div>
+        </Link>
     );
 }
 
